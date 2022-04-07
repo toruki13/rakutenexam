@@ -1,5 +1,5 @@
 
-//just designing the tables
+//just designing the tables test
 REATE DATABASE cats CREATE TABLE catfacts { _id SERIAL NOT NULL PRIMARY KEY,
 type status json,
 user NOT NULL VARCHAR,
