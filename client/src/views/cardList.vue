@@ -15,14 +15,14 @@ export default {
   },
   data() {
     return {
-      events: null,
+      facts: null,
     };
   },
   created() {
     EventService.getFacts()
       .then((response) => {
-        console.log('facts:', response.data);
-        this.events = response.data;
+        console.log('facts:', response.data[0]);
+        this.facts = response.data;
       })
       .catch((error) => {
         console.log(error);
@@ -30,3 +30,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>

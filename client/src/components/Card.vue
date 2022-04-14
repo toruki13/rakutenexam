@@ -1,21 +1,12 @@
 <template>
-  <router-link
-    class="fact-link"
-    :to="{
-      name: 'factDetails',
-      params: { id: fact.id },
-    }"
-  >
-    <div class="fact-card">
-      <h4>{{ fact.name }}</h4>
-      <div class="status">
-        <span v-if="statusColorR" class="status-icon-r"></span>
-        <span v-else-if="statusColorG" class="status-icon-g"></span>
-        <span>Status: {{ fact.status }}</span>
-      </div>
-      <img :src="fact.image" />
+  <div class="fact-card">
+    <h4>By: {{ fact.user }}</h4>
+    <span>Status: {{ fact.status.verified }}</span>
+    <span>createdAt: {{ fact.createdAt }}</span>
+    <div class="status">
+      <h1>{{ fact.text }}</h1>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -39,7 +30,7 @@ export default {
   width: 320px;
   height: auto;
   min-height: 450px;
-  background: rgb(60, 62, 68);
+  background: rgb(80, 89, 117);
   border-radius: 20px;
   overflow: hidden;
   padding: 10px 15px;

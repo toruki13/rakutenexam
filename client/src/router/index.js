@@ -4,7 +4,7 @@ import CardList from '../views/CardList.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/CardList',
     name: 'CardList',
     component: CardList,
   },
@@ -16,11 +16,8 @@ const routes = [
   {
     path: '/facts',
     name: 'API',
-    component: () =>
-      
-      import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    
   },
+
 ];
 
 const router = createRouter({

@@ -2,8 +2,7 @@
   <div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/facts">Facts</router-link>|
-      <router-link to="/CardList">s</router-link>
+      <router-link to="/CardList">CardList</router-link>
 
     </div>
     <router-view/>
