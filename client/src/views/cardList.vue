@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import EventService from '@/services/EventService';
+import FactsService from '@/services/FactsService';
 import Card from '../components/Card.vue';
 
 export default {
@@ -19,7 +19,7 @@ export default {
     };
   },
   created() {
-    EventService.getFacts()
+    FactsService.getFacts()
       .then((response) => {
         console.log('facts:', response.data[0]);
         this.facts = response.data;
