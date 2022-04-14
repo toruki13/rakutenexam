@@ -1,19 +1,19 @@
 <template>
   <router-link
-    class="event-link"
+    class="fact-link"
     :to="{
-      name: 'EventDetails',
-      params: { id: event.id },
+      name: 'factDetails',
+      params: { id: fact.id },
     }"
   >
-    <div class="event-card">
-      <h4>{{ event.name }}</h4>
+    <div class="fact-card">
+      <h4>{{ fact.name }}</h4>
       <div class="status">
         <span v-if="statusColorR" class="status-icon-r"></span>
         <span v-else-if="statusColorG" class="status-icon-g"></span>
-        <span>Status: {{ event.status }}</span>
+        <span>Status: {{ fact.status }}</span>
       </div>
-      <img :src="event.image" />
+      <img :src="fact.image" />
     </div>
   </router-link>
 </template>
@@ -21,33 +21,21 @@
 <script>
 export default {
   props: {
-    event: {
+    fact: {
       type: Object,
       required: true,
     },
   },
   data() {
     return {
-      status: this.event.status,
+      status: this.fact.status,
     };
-  },
-  computed: {
-    statusColorR() {
-      if (this.status === 'Dead') {
-        return 1;
-      } else return 0;
-    },
-    statusColorG() {
-      if (this.status === 'Alive') {
-        return 1;
-      } else return 0;
-    },
   },
 };
 </script>
 
 <style>
-.event-card {
+.fact-card {
   width: 320px;
   height: auto;
   min-height: 450px;
@@ -80,14 +68,14 @@ export default {
 img {
   margin-top: 5%;
 }
-.event-card:hover {
+.fact-card:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
-.event-card > .title {
+.fact-card > .title {
   margin: 0;
 }
-.event-link {
+.fact-link {
   color: black;
   text-decoration: none;
   font-weight: 100;

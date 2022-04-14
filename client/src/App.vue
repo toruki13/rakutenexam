@@ -2,7 +2,9 @@
   <div>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/facts">Facts</router-link>
+      <router-link to="/facts">Facts</router-link>|
+      <router-link to="/CardList">s</router-link>
+
     </div>
     <router-view/>
   </div>
@@ -10,7 +12,7 @@
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Avenir,  Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

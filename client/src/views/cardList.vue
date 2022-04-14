@@ -1,68 +1,32 @@
 <template>
-  <div class="btn-container">
-    <button v-on:click="prevPage">PREV</button>
-    <button v-on:click="nextPage">NEXT</button>
-  </div>
-  <div class="container">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+  <div class='container'>
+    <Card v-for='fact in facts' :key='fact.id' :fact='fact' />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import EventCard from '@/components/EventCard.vue';
-import EventService from '@/services/EventService.js';
-//import axios from 'axios'
+import EventService from '@/services/EventService';
+import Card from '../components/Card.vue';
+
 export default {
-  //props: ["page"],
   name: 'CardList',
   components: {
-    EventCard,
+    Card,
   },
   data() {
     return {
       events: null,
-      page: 1,
     };
   },
   created() {
-    EventService.getEvents()
+    EventService.getFacts()
       .then((response) => {
-        console.log('events:', response.data.results);
-        this.events = response.data.results;
+        console.log('facts:', response.data);
+        this.events = response.data;
       })
       .catch((error) => {
         console.log(error);
       });
   },
-  methods: {
-    nextPage: function () {
-      this.page++;
-      this.getPage();
-    },
-    prevPage: function () {
-      this.page < 2 ? this.page : this.page--;
-      this.getPage();
-    },
-    getPage: function () {
-      EventService.getEventsPage(this.page)
-        .then((response) => {
-          //console.log("events:", response.data.results);
-          this.events = response.data.results;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
 };
 </script>
-
-<style lang="scss">
-@import '../assets/styles.scss';
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-</style>

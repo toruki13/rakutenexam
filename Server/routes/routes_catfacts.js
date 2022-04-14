@@ -8,7 +8,7 @@ const route = Router({
   /*   caseSensitive: true */
 });
 
-route.get('/fromSource', getCats);
+route.get('/catsfacts', getCats);
 
 export default route;
 

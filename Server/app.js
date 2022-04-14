@@ -2,6 +2,8 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import config from './config.js';
 import Morgan from 'morgan';
+import Cors from 'cors'
+
 
 import routes from './routes/index.js';
 
@@ -17,6 +19,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+//CORS
+app.use(Cors())
 //logging for dev purposes
 app.use(Morgan('tiny'));
 
